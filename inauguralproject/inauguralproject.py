@@ -36,10 +36,10 @@ class demand:
 
         demand = self.fraction * sum(price * good) / price[self.good - 1]
 
-        return demand
+        return np.maximum(demand, 0)
 
 def utility(fraction, good):
-    good_1 = np.array(good[0]) ** fraction
-    good_2 = np.array(good[1]) ** (1-fraction)
+    good_1 = np.array(np.maximum(good[0], 0)) ** fraction
+    good_2 = np.array(np.maximum(good[1], 0)) ** (1-fraction)
 
     return np.multiply(good_1, good_2)
