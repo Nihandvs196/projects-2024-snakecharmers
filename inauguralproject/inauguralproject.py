@@ -40,6 +40,6 @@ class demand:
 
 def utility(fraction, good):
     good_1 = np.array(np.maximum(good[0], 0)) ** fraction
-    good_2 = np.array(np.maximum(good[1], 0)) ** (1-fraction)
+    good_2 = (np.array(np.maximum(good[1], 0))) ** (1-fraction)
 
-    return np.multiply(good_1, good_2)
+    return good_1 * good_2
